@@ -1,0 +1,51 @@
+<script>
+    function lw()
+    {
+            var cmd = document.getElementById("plate-no").value;
+            var xhr = new XMLHttpRequest();
+    
+            xhr.open("GET", "http://13.234.239.231/cgi-bin/app.py?plate-no="+cmd, true);
+            xhr.send();
+    
+            xhr.onload = function() {
+                var output = xhr.responseText;
+                document.getElementById("output").innerHTML = output;
+            }
+    }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <center>
+        
+        <img src="image1.gif" width="650" height="500">
+        <div id="i1">
+        
+        <h1>Enter the Plate Number</h1>
+        <input type= "text" id="plate-no" placeholder= "Plate-number">
+        <br><br>
+        
+        <button id="submit" onclick="lw()">Show Details</button>
+        <br>
+        <div>
+        
+        <div id="output">
+        </div>
+    </div>
+        
+        </center>
+        </div>
+        
+</body>
+</html>
